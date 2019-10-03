@@ -10,7 +10,7 @@
 ---
 #### 1. Python本体
 - Paizaスキルチェックは`3.6.8`を使用しているのでこちらをインストールします
-    - [Windows(64bit版)](https://www.python.org/ftp/python/3.6.8/python-3.6.8.amd64.msi)
+    - [Windows(64bit版)](https://www.python.org/ftp/python/3.6.8/python-3.6.8-amd64.exe)
     - [Mac](https://www.python.org/ftp/python/3.6.8/python-3.6.8-macosx10.9.pkg)
     - Linux: [ここ](https://www.python.org/downloads/release/python-368/)見て対応して、分からなければ質問ください
 - ただしPython 3の最新安定版のバージョンは2019/9/16現在`3.7.4`
