@@ -19,26 +19,31 @@
     - Linux: [ここ](https://www.python.org/downloads/release/python-374/)見て対応して、分からなければ質問ください
     
 ##### テストや競技プログラミングに使いたくなりそうな機能
-    - f-strings
-          ```python
-          name = "Alice"
-          print(f"Hi, {name}! What's up?")  # -> {name}に変数nameの中身である"Alice"が入り "Hi, Alice! What's up?" となる
-          ```
-    - 変数アノテーション文法
-        - `sample_dict: Dict[str, int] = dict()`
-    - 数値リテラル内のアンダースコア
-        - 桁区切りに使って可読性を上げる（ファイル容量はその分増えますが、人間には優しくなれます）
-        ```python
-        want_money = 5_000_000_000_000_000
-        print("{:,}円欲しい!!".format(want_money))
-        ``` 
-    - `enum`の`auto()`    
-    - `typing`モジュール： 型のヒントをつけることができる
-        - コードの見通しを良くするのに使いたい
-        - VSCodeなど、賢いIDEは型ヒントを使うと使えるメソッド（関数）をたくさん教えてくれるようになる
-    - 行列乗算演算子 `@`
-    - `dict()`の出力が順不同なので必要に応じて`collections.OrderedDict`を利用する
-    - `async`/`await`は利用できるシーンがわからん（シングルスレッドでも使えるけど、非同期処理をどう使えばいいか見えない）
+
+- f-strings
+    ```python
+    name = "Alice"
+    print(f"Hi, {name}! What's up?")  # -> {name}に変数nameの中身である"Alice"が入り "Hi, Alice! What's up?" となる
+    ```
+- 変数アノテーション文法
+    ```python
+    from typing import Dict
+    
+    sample_dict: Dict[str, int] = dict()
+    ```
+- 数値リテラル内のアンダースコア
+    - 桁区切りに使って可読性を上げる（ファイル容量はその分増えますが、人間には優しくなれます）
+    ```python
+    want_money = 5_000_000_000_000_000
+    print("{:,}円欲しい!!".format(want_money))
+    ``` 
+- `enum`の`auto()`    
+- `typing`モジュール： 型のヒントをつけることができる
+    - コードの見通しを良くするのに使いたい
+    - VSCodeなど、賢いIDEは型ヒントを使うと使えるメソッド（関数）をたくさん教えてくれるようになる
+- 行列乗算演算子 `@`
+- `dict()`の出力が順不同なので必要に応じて`collections.OrderedDict`を利用する
+- `async`/`await`は利用できるシーンがわからん（シングルスレッドでも使えるけど、非同期処理をどう使えばいいか見えない）
 
 #### 2. GitとGitHubアカウントの作成
 1. Gitとは
