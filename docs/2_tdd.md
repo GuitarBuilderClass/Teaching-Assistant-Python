@@ -38,7 +38,10 @@ def test_add(a, b, expected):
     assert actual == expected
 ```
 
-このテストケースを通過する最短の関数`add(a, b)`は次の形です
+`(1, 2, 3)`はそれぞれ`a`, `b`, `expected`に対応しています
+@pytest.mark.parametrize()の第一引数に渡した文字列と対応していますね
+
+a=1, b=2の答えが3となるテストケースを通過する最短の関数`add(a, b)`は次の形です
 ```python
 def add(a, b):
     return 3
@@ -50,6 +53,7 @@ def add(a, b):
 
 もちろん、他のテストケースでは通用しませんよね  
 テストコードにテストケースを追加します
+テストケースを追加するには、`(1, 2, 3)`のあとに`,`をつけて先ほどと同様に`a`, `b`, `expected`に対応する値を書いていきます。
 ```python
 import pytest
 from src.solution import *
