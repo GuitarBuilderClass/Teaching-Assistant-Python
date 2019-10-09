@@ -50,13 +50,13 @@ print("D")
 > D  
 > 
 > 【解説】  
-> numが3だから、条件に当てはまるのは`-2 <= num < 4`の部分
-> 範囲が連続している場合は`and`は不要
+> numが3だから、条件に当てはまるのは`-2 <= num < 4`の部分  
+> 範囲が連続している場合は`and`は不要  
 > 
-> `pass`は何もしない命令なので、`if-elif-else`の外側にある
+> `pass`は何もしない命令なので、`if-elif-else`の外側にある  
 > `print("D")`だけが実行される
 > 
-> `pass`がないと`IndentationError: expected an indented block`となる
+> `pass`がないと`IndentationError: expected an indented block`となる  
 > 本来なら式や命令文が存在するはずのインデントブロックが存在しないためエラーが起きる
 
 #### 例題2
