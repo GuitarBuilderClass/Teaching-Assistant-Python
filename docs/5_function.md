@@ -109,3 +109,90 @@ print(dummy_function())
 
 出力
 > 29
+
+
+---
+#### 消費税を計算しよう
+今は令和元年9月30日  
+たろう君はコンビニで110円（税抜）のおにぎりを買いました。
+次にたろう君はスーパーでワンカップ大関を198円（税別）で買います。  
+たろう君はそれぞれのお店でいくら支払うでしょうか
+
+関数を使わないコード
+```python
+from math import floor
+
+print(f"たろう君はコンビニで{floor(110 * 1.08)}円つかいました")
+print(f"たろう君はスーパーで{floor(198 * 1.08)}円つかいました")
+
+```
+出力
+> たろう君はコンビニで118円つかいました  
+> たろう君はスーパーで213円つかいました
+
+消費税計算は同じ処理をしていますね  
+関数にまとめてみましょう
+
+```python=
+from math import floor
+
+
+def calc_tax(price: int) -> int:
+    return floor(price * 1.08)
+    
+
+print(f"たろう君はコンビニで{calc_tax(110)}円つかいました")
+print(f"たろう君はスーパーで{calc_tax(198)}円つかいました")
+
+```
+
+出力省略
+
+さて、令和元年10月1日になりました  
+消費税が8%から10％になり、軽減税率も導入されました
+
+最初のコードではすべてを手で直さなくてはいけませんが、関数化している場合は関数を手直しするだけで大丈夫です
+
+たろう君はコンビニで110円（税抜）のおにぎりを持ち帰りで買います  
+帰りにたろう君は中華屋でチューハイ大ジョッキ298円（税抜）と餃子348円（税抜）とラーメン640円（税抜）を店内で食べようと注文します
+
+`calc_tax()`関数を軽減税率の対象かどうかも含めて対応できるように変更してみましょう
+
+```python=
+from math import floor
+
+
+def calc_tax(price: int, is_reduced_tax: bool) -> int:  # 関数のデフォルト値
+    if is_reduced_tax:
+        return floor(price * 1.08)
+    else:
+        return floor(price * 1.1)
+
+
+print(f"たろう君はコンビニで{calc_tax(110, True):,d}円つかいました")
+print(f"たろう君は中華屋で{calc_tax(298 + 348 + 648, False):,d}円つかいました")  # {<数値>:,d}は3桁区切りでカンマを入れる記号
+
+```
+出力
+> たろう君はコンビニで118円つかいました  
+> たろう君は中華屋で1,423円つかいました
+
+`calc_tax()`の引数 `is_reduced_tax`によって税率計算が切り替わっている  
+この他にも、`1.08`や`1.1`が一見して何を表す数字か分からないため、変数（定数）として扱ってコメントがなくてもわかるようにする方法もある
+
+```python=
+from math import floor
+
+NORMAL_TAX_RATE = 1.1
+REDUCED_TAX_RATE = 1.08
+
+def calc_tax(price: int, is_reduced_tax: bool) -> int:  # 関数のデフォルト値
+    if is_reduced_tax:
+        return floor(price * REDUCED_TAX_RATE)
+    else:
+        return floor(price * NORMAL_TAX_RATE)
+        
+```
+定数は大文字をアンダースコアで繋げて命名するのがPython流  
+`price`に掛けているのが`REDUCED_TAX_RATE`なのか`NORMAL_TAX_RATE`なのか、コードから何の計算をしているか分かりやすい  
+また~~考えたくないけど~~税率が変わったときもそれぞれの定数の数値を変えるだけで基本的には改修が終わるはずなので楽になる
