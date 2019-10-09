@@ -22,6 +22,9 @@ def add(a: int, b: int) -> int:
 - `-> int:` : 戻り値がint型の関数だという型ヒント
 - `return`: 関数を利用した場所に渡す値
 
+Paizaでも型ヒントが使えるようになったが、型のあるコードは保守性が高くなりやすい（メンテナンスしやすい）ので、**型ヒントは書かなくてもいいけど、書いた方がエンジニア（未来の同僚）からのウケは良い**という実感がある  
+型のある言語（JavaとかTypeScriptとか）にも移行しやすくなると思うし
+
 関数は外の変数の変化から影響を受けないし、中の変数の変化で外へ影響を与えることもできない  
 引数で外から値を受け取り、`return`で戻り値を元のコードへ渡すことができる  
 
@@ -55,8 +58,9 @@ print(e)
 ```python=
 from typing import List
 
+
 def add(int_list: List[int]) -> int:
-    result = 0
+    result: int = 0
     for n in int_list:
         result += n
     return result
@@ -74,3 +78,34 @@ print(add(i_list))
 
 関数は同じ処理が複数箇所にあるとき、処理をまとめるために使うことも多い  
 スキルチェックでは時間制限があるのでそこまで考える時間はないかもしれないが、実務では是非似た処理はひとつの関数にまとめていってほしい
+
+---
+### スコープ
+関数の中と外では同じ変数名でも別々の値としてデータを扱っている  
+たとえば、次のコードでは関数内の変数を関数外から直接使おうとしているが、関数内の処理を関数外から直接参照できないので、変数が未定義(`NameError`)だというエラーが出る
+
+```python=
+def dummy_function() -> None:
+    cant_callable_variable = 810
+    
+ 
+print(cant_callable_variable)
+
+```
+
+出力
+> Traceback (most recent call last):  
+>   File "<input>", line 5, in <module>  
+> NameError: name 'cant_callable_variable' is not defined
+    
+関数内の処理を関数外で使いたいときは`return`を使うか、後述予定のクラス(`class`）で属性として扱う
+```python=
+def dummy_function() -> int:
+    return 33 - 4
+    
+print(dummy_function())
+
+```
+
+出力
+> 29
