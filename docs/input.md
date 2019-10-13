@@ -11,7 +11,7 @@
 |入力|コード|結果|
 |:---:|:---|:---|
 |abcde|`s = input()`|s = "abcde"|
-|abcde|`lst=list(input())`|lst = ["a", "b", "c", "d", "e"]| 
+|abcde|`lst = list(input())`|lst = ["a", "b", "c", "d", "e"]| 
 |5|`n = int(input())`|n = 5|
 |1 2|`a, b = [int(x) for x in input().split()]`|a = 1, b = 2|
 |a b c d e|`lst = input().split()`|lst = ["a", "b", "c", "d", "e"]|
