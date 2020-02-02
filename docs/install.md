@@ -136,4 +136,4 @@
         - それか自分のアカウントにforkしてください
             - forkしても何か変更する前には`git checkout -b <ブランチ名>`するとミスったとき戻りやすいです(参考[GitHub Flow](https://gist.github.com/Gab-km/3705015))
             - リモートの`master`以外のブランチへ`push`してからGitHub上でプルリクエストの依頼ができます
-                - 依頼先に`GuitarBuilderClass`や教えてくれる人を指定すると、依頼された人がチェックしてコメントくれる仕組みです
+                - 依頼先に`OptimisticPessimist`や教えてくれる人を指定すると、依頼された人がチェックしてコメントくれる仕組みです
