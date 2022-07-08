@@ -95,7 +95,7 @@ print(cant_callable_variable)
 
 出力
 > Traceback (most recent call last):  
->   File "<input>", line 5, in <module>  
+>   File "\<input>", line 5, in \<module>  
 > NameError: name 'cant_callable_variable' is not defined
     
 関数内の処理を関数外で使いたいときは`return`を使うか、後述予定のクラス(`class`）で属性として扱う

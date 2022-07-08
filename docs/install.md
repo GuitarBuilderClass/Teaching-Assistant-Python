@@ -9,23 +9,23 @@
 
 ---
 #### 1. Python本体
-- Paizaスキルチェックは`3.6.8`を使用しているのでこちらをインストールします
-    - [Windows(64bit版)](https://www.python.org/ftp/python/3.6.8/python-3.6.8-amd64.exe)
-    - [Mac](https://www.python.org/ftp/python/3.6.8/python-3.6.8-macosx10.9.pkg)
-    - Linux: [ここ](https://www.python.org/downloads/release/python-368/)見て対応して、分からなければ質問ください
-- ただしPython 3の最新安定版のバージョンは2019/9/16現在`3.7.4`
-    - [Windows(64bit版)](https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64-webinstall.exe)
-    - [Mac](https://www.python.org/ftp/python/3.7.4/python-3.7.4-macosx10.9.pkg)
-    - Linux: [ここ](https://www.python.org/downloads/release/python-374/)見て対応して、分からなければ質問ください
+- Paizaスキルチェックは`3.8.10`を使用しているのでこちらをインストールします
+    - [Windows(64bit版)](https://www.python.org/ftp/python/3.8.10/python-3.8.10-amd64.exe)
+    - [Mac](https://www.python.org/ftp/python/3.8.10/python-3.8.10-macosx10.9.pkg)
+    - Linux: [ここ](https://www.python.org/downloads/release/python-3810/)見て対応して、分からなければ質問ください
+- ただしPython 3の最新安定版のバージョンは2022/7/8現在`3.10.5`
+    - [Windows(64bit版)](https://www.python.org/ftp/python/3.10.5/python-3.10.5-amd64-webinstall.exe)
+    - [Mac](https://www.python.org/ftp/python/3.10.5/python-3.10.5-macosx11.pkg)
+    - Linux: [ここ](https://www.python.org/downloads/release/python-3105/)見て対応して、分からなければ質問ください
     
 ##### テストや競技プログラミングに使いたくなりそうな機能
 
-- f-strings
+- f-strings: 文字列内の `{}` 内に変数の値を入れる。
     ```python
     name = "Alice"
     print(f"Hi, {name}! What's up?")  # -> {name}に変数nameの中身である"Alice"が入り "Hi, Alice! What's up?" となる
     ```
-- 変数アノテーション文法
+- 変数アノテーション文法: データ型を記述する。可読性が良くなるのでコードを読む人の印象が良くなるかも。
     ```python
     from typing import Dict
     
@@ -35,9 +35,9 @@
     - 桁区切りに使って可読性を上げる（ファイル容量はその分増えますが、人間には優しくなれます）
     ```python
     want_money = 5_000_000_000_000_000
-    print("{:,}円欲しい!!".format(want_money))
+    print("{:,}円欲しい!!".format(want_money))  # -> 5000000000000000兆円欲しい!!
     ``` 
-- `enum`の`auto()`    
+- `enum`の`auto()`: 列挙型を使うときに。トランプのマークを扱うときなどで使う。    
 - `typing`モジュール： 型のヒントをつけることができる
     - コードの見通しを良くするのに使いたい
     - VSCodeなど、賢いIDEは型ヒントを使うと使えるメソッド（関数）をたくさん教えてくれるようになる
@@ -111,7 +111,7 @@
         ```
         python -V
         ```
-        `Python 3.6.8`と出力されたら成功です
+        `Python 3.8.10`と出力されたら成功です
     1. インストールパッケージの確認
         ```
         pip list
@@ -122,17 +122,15 @@
         Package            Version Location
         ------------------ ------- -----------------------------------
         (なんかたくさん)
-        pytest             5.0.1
+        pytest             7.0.1
         （なんかたくさん）
         ```
-        `5.0.1`以下ならOK
-        - VSCodeのリモートペアプログラミング機能にバグがあり、pytestの最新版が使えないため必ず`5.0.1`以下であることを確認してください 
     1. gitのブランチを切る
         ```
         git checkout -b <あなたの名前>/<そのブランチでやりたいことが分かりやすい名前>
         ```
         - `clone`した場合は`<自分の名前>/feature/<任意のブランチ名>`は好きに使ってください  
-            - 他人のリポジトリや`master`には手を出さないように　　
+            - 他人のリポジトリや`master`/`main`には手を出さないように　　
         - それか自分のアカウントにforkしてください
             - forkしても何か変更する前には`git checkout -b <ブランチ名>`するとミスったとき戻りやすいです(参考[GitHub Flow](https://gist.github.com/Gab-km/3705015))
             - リモートの`master`以外のブランチへ`push`してからGitHub上でプルリクエストの依頼ができます
